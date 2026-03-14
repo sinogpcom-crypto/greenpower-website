@@ -1,0 +1,26 @@
+{template "content","header"}
+<link href="{CSS_PATH}aaext_job.css" rel="stylesheet" type="text/css" />
+<div class="job">
+<table class="job_more">
+  <tr>
+    <td class="title"><strong>{L('zhiwei')}：</strong></td>
+    <td>{$zhiwei}</td>
+    <td class="title"><strong>{L('renshu')}：</strong></td>
+    <td>{$renshu} 人</td>
+    <td class="title"><strong>{L('bumen')}：</strong></td>
+    <td>{$bumen}</td>
+    <td class="title"><strong>{L('diqu')}：</strong></td>
+    <td>{$diqu}</td>
+  </tr>
+  <tr>
+    <td colspan="8" class="content"><strong>说明：</strong><br/>{$content}</td>
+  </tr>
+  {if $set[yp_or_not]}
+  <tr>
+    <td colspan="8" class="title" align="center"><strong><a href="{APP_PATH}index.php?m=job&c=index&a=yingpin&jobid={$jobid}">应聘职位</a></strong></td>
+  </tr>
+  {/if}
+</table>
+
+</div>
+{template "content","footer"}

@@ -1,0 +1,51 @@
+{template "content","header"}
+
+<body>
+
+	<!--header-wrapper-->
+
+	{template "content","part_nav"}
+	<!--/header-wrapper-->
+
+
+	
+	{template "content","page_banner"}
+	
+	          
+	
+	
+	<!-- Page Content -->
+	<main class="page-content">
+
+		<div class="investment-page productbg1">
+            
+            <div class="page_wrap ">
+				<div class="single-page">
+					{pc:content action="lists" catid="$catid"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  num="1"   }
+                	{loop $data $r}
+					<img src="{$r[thumb]}" alt="">
+					{/loop}
+                	{/pc}
+				</div>
+            </div>
+
+		</div>
+
+		
+	</main>
+	<!-- //Page Content -->
+
+	
+
+	<!-- 底部 -->
+	
+	{template "content","footer"}
+	
+	<!-- 底部 end-->
+
+
+	{template "content","script"}
+
+</body>
+
+</html>

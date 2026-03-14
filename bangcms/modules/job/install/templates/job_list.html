@@ -1,0 +1,31 @@
+{template "content","header"}
+<link href="{CSS_PATH}aaext_job.css" rel="stylesheet" type="text/css" />
+<div class="job">
+<table class="job_list">
+  <tr class="title">
+    <td>{L('zhiwei')}</td>
+    <td>{L('renshu')}</td>
+    <td>{L('bumen')}</td>
+    <td>{L('diqu')}</td>
+    <td>{L('enddate')}</td>
+    <td>{L('more')}</td>
+  </tr>
+{pc:job action="lists" order="listorder ASC,jobid DESC" num="10" page="$page"}
+{loop $data $r}
+  
+  
+  <tr>
+    <td>{$r[zhiwei]}</td>
+    <td>{$r[renshu]}</td>
+    <td>{$r[bumen]}</td>
+    <td>{$r[diqu]}</td>
+    <td>{$r[enddate]}</td>
+    <td><a href="{APP_PATH}index.php?m=job&c=index&a=more&id={$r[jobid]}">{L('more')}</a></td>
+  </tr>
+
+{/loop}
+{/pc}
+</table>
+<div class="job_page">{$pages}</div>
+</div>
+{template "content","footer"}

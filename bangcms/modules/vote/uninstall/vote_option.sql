@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `bangcms_vote_option`;

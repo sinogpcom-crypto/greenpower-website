@@ -1,0 +1,39 @@
+<div class="category">
+		<div class="page_wrap">
+			<div class="category_head">
+				<span>{$CATEGORYS[$catid][catname]}</span>
+				<i class="fa iconfont icon-angledown transition03"></i>
+			</div>
+			<div class="page_nav clearfix">
+				{if $CAT[parentid]==16}
+					{php $parentid_nav=5}
+				{else}
+					{php $parentid_nav=$CAT[parentid]}
+				{/if}
+				
+				{pc:content action="category" where="ismenu=1" catid="$parentid_nav" siteid="$siteid" order="listorder,catid" }
+                {loop $data $r}
+                <?php 
+                    if ($r[child] == 1 and $r[catid]!=3) { 
+                        $child_arrary=explode(',',$r[arrchildid]);
+                        if($CATEGORYS[$child_arrary[1]][ismenu]==1) {
+                            if($CATEGORYS[$child_arrary[1]][child]==1){
+                                $child_arrary2=explode(',',$CATEGORYS[$child_arrary[1]][arrchildid]);
+                                if($CATEGORYS[$child_arrary2[1]][ismenu]==1) {
+                                    $r[url]=$CATEGORYS[$child_arrary2[1]][url];
+
+                                }
+
+                            }else{
+                                $r[url]=$CATEGORYS[$child_arrary[1]][url];
+                            }  
+                           
+                         }  
+                    } 
+                ?>
+				<a {if $catid ==$r[catid] || $CAT[parentid]==$r[catid]}class="active"{/if} href="{$r[url]}">{$r[catname]}</a>
+				{/loop}
+                {/pc}
+			</div>
+		</div>
+	</div>

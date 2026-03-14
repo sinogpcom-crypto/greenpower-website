@@ -1,0 +1,148 @@
+{template "content","header"}
+<link href="{CSS_PATH}aaext_job.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+<div class="job">
+<div class="pad_10" style="padding-top:10px;">
+<form action="?m=job&c=index&a=yingpin&jobid={$_GET['jobid']}" method="post" name="myform" id="myform">
+<table cellpadding="2" cellspacing="1" class="table_form" width="100%">
+	
+	<tr>
+		<th width="100"><?php echo L('name')?>：</th>
+		<td><input type="text" name="yp[name]" id="name" size="30" class="input-text"></td>
+	</tr>
+	
+	<tr>
+		<th width="100"><?php echo L('sex')?>：</th>
+		<td>
+			<input name="yp[sex]" type="radio" value="男" checked="checked" />&nbsp;&nbsp;男
+			<input name="yp[sex]" type="radio" value="女" />&nbsp;&nbsp;女
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100"><?php echo L('age')?>：</th>
+		<td><input type="text" name="yp[age]" id="age" size="30" class="input-text"></td>
+	</tr>
+	
+	<tr>
+		<th width="100"><?php echo L('xueli')?>：</th>
+		<td><input type="text" name="yp[xueli]" id="xueli" size="30" class="input-text"></td>
+	</tr>
+	
+	<tr>
+		<th width="100"><?php echo L('tel')?>：</th>
+		<td><input type="text" name="yp[tel]" id="tel" size="30" class="input-text"></td>
+	</tr>
+	
+	<tr>
+		<th width="100"><?php echo L('jianli')?>：</th>
+		<td><textarea name="yp[jianli]" id="jianli" style="width:400px;" rows="7"></textarea></td>
+	</tr>
+	{if $set['ypcode_or_not']}
+	<tr>
+		<th width="100"><?php echo L('code')?>：</th>
+		<td><input type="text" name="code" id="code" size="10" class="input-text">&nbsp;&nbsp;{form::checkcode('code_img','','12',100,25)}</td>
+	</tr>
+	{/if}
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+		<input type="submit" name="dosubmit" id="dosubmit" value=" <?php echo L('ok')?> " class="button">&nbsp;
+		</td>
+	</tr>
+
+</table>
+</form>
+</div>
+</div>
+{template "content","footer"}
+<script type="text/javascript">
+<!--
+$(function(){
+	$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, function(){this.close();$(obj).focus();})}});
+	
+	$("#name").formValidator({
+		onshow:"{L(input)}{L(name)}",
+		onfocus:"{L(input)}{L(name)}",
+		oncorrect:"{L(correct)}"
+	}).inputValidator({
+		min:1,			
+		onerror:"{L(input)}{L(name)}"
+	});
+	
+	$("#age").formValidator({
+		onshow:"{L(input)}{L(age)}",
+		onfocus:"{L(input)}{L(age)}",
+		oncorrect:"{L(correct)}"
+	}).inputValidator({
+		min:1,			
+		onerror:"{L(input)}{L(age)}"
+	}).regexValidator({
+		regexp:"^[1-9]\\d*|0$",				
+		onerror:"{L(renshuonerror)}"
+	});
+	
+	$("#xueli").formValidator({
+		onshow:"{L(input)}{L(xueli)}",
+		onfocus:"{L(input)}{L(xueli)}",
+		oncorrect:"{L(correct)}"
+	}).inputValidator({
+		min:1,			
+		onerror:"{L(input)}{L(xueli)}"
+	});
+	
+	$("#tel").formValidator({
+		onshow:"{L(input)}{L(tel)}",
+		onfocus:"{L(input)}{L(tel)}",
+		oncorrect:"{L(correct)}"
+	}).inputValidator({
+		regexp:"^(1)[0-9]{9}$",			
+		onerror:"{L(input)}{L(tel)}"
+	}).regexValidator({
+		regexp:"^[1-9]\\d*|0$",				
+		onerror:"{L(telonerror)}"
+	});
+	
+	$("#jianli").formValidator({
+		onshow:"{L(input)}{L(jianli)}",
+		onfocus:"{L(input)}{L(jianli)}",
+		oncorrect:"{L(correct)}"
+	});
+	
+	$("#code").formValidator({
+		onshow:"{L(input)}{L(code)}",
+		onfocus:"{L(input)}{L(code)}",
+		oncorrect:"{L(correct)}"
+	}).inputValidator({
+		min:4,			
+		onerror:"{L(input)}{L(code)}"
+	}).ajaxValidator({
+		type:"get",
+		url:"",
+		data:"m=job&c=index&a=code_check",
+		datatype:"html",
+		async:'false',
+		success : function(data) {
+			if( data == "1" )
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		},
+	buttons: $("#dosubmit"),
+	error: "{L('server_busy')}",
+	onerror : "{L('code')}{L('error')}",
+	onwait : "{L('checking')}"
+	});
+	 
+})
+//-->
+</script>

@@ -1,0 +1,118 @@
+{template "content","header"}
+
+<body>
+
+	<!--header-wrapper-->
+
+	{template "content","part_nav"}
+	<!--/header-wrapper-->
+
+
+	
+	<div class="page_ban" >
+		<div class="img-box" style="background-image: url({$CATEGORYS[$top_parentid][image]});">
+			<img src="{$CATEGORYS[$top_parentid][image]}" alt="">
+		</div>
+		<div class="img-info">
+			<div class="page_wrap">
+
+				<div class="info_title">
+					<span>{$CATEGORYS[$top_parentid][catname_en]}</span>
+					<h3>{$CATEGORYS[$top_parentid][catname]}</h3>
+				</div>
+				<div class="mbx">
+					<a href="/">Home</a>
+					<i class="fa iconfont icon-angleright"></i>
+					<a href="{$CATEGORYS[$top_parentid][url]}">{$CATEGORYS[$top_parentid][catname]}</a>
+					<i class="fa iconfont icon-angleright"></i>
+					<a href="{$CATEGORYS[$catid][url]}">{$CATEGORYS[$parentid][catname]}</a>
+					<i class="fa iconfont icon-angleright"></i>
+					<a href="{$CATEGORYS[$catid][url]}">{$CATEGORYS[$catid][catname]}</a>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!--productMenu-->
+    <div class="product_menu">
+         <div id="pMenu">
+         	{pc:content action="category" where="ismenu=1" catid="$CAT[parentid]"   siteid="$siteid" order="listorder,catid" return="datas" }
+            {loop $datas $r}
+            <a href="{$r[url]}" {if $catid ==$r[catid] }class="active"{/if}>{$r[catname]}</a>
+            {/loop}
+            {/pc}
+			
+
+			 <span id="arrow"><img src="/statics/web/images/down.png"> </span>
+         </div>
+		<script>
+			window.onload=function(){
+				var originH=$("#pMenu").height();
+			    if(originH > 140){
+					$("#pMenu").css({'height':'140px','overflow':'hidden'});
+					$('#arrow').css('display','block');
+				}
+				$('#arrow').click(function () {
+                      if($("#pMenu").height()==140){
+						  $("#pMenu").css({'height':'auto','overflow':'auto'});
+						  $('#arrow').html(`<img src="/statics/web/images/up.png">`)
+					  }
+                      else{
+						  $("#pMenu").css({'height':'140px','overflow':'hidden'});
+						  $('#arrow').html(`<img src="/statics/web/images/down.png">`)
+					  }
+				})
+
+
+			}
+
+		</script>
+    </div>
+	
+	<!-- Page Content -->
+	<main class="page-content">
+
+		<div class="product-list-list">
+			<div class="page_wrap clearfix">
+				{pc:content action="lists" catid="$catid"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="8" page="$page" }
+                	{loop $data $r}
+				<div class="item">
+					<a href="{$r[url]}">
+						<div class="item-img">
+							<img src="{$r[thumb]}" alt="">
+						</div>
+						<div class="item-box">
+
+							<div class="title">{$r[title]}</div>
+							<div class="label">{$r[xh]}</div>
+
+						</div>
+					</a>
+				</div>
+				{/loop}
+                 	{/pc}
+
+				
+			</div>
+			{$pages2}
+		</div>
+
+	</main>
+	<!-- //Page Content -->
+
+	
+
+	<!-- 底部 -->
+	
+	{template "content","footer"}
+	
+	<!-- 底部 end-->
+
+
+	{template "content","script"}
+
+</body>
+
+</html>

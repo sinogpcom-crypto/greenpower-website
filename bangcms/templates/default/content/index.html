@@ -1,0 +1,315 @@
+{template "content","header"}
+
+<body>
+
+	<!--header-wrapper-->
+
+	{template "content","part_nav"}
+	<!--/header-wrapper-->
+
+	
+
+
+	<!-- banner -->
+	<div class="i_banner">
+
+		<div class="ibanner_box">
+			<div class="swiper-wrapper">
+				{pc:content action="lists" catid="39"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+                {loop $data $r}
+                {if $r[video]}
+				<div class="swiper-slide">
+					
+					<div class="iteam">
+
+						<div class="video_box">
+							<div class="img">
+								<div class="img-i imgY">
+									<img src="{$r[thumb]}" alt="">
+								</div>
+								<div class="img-i imgN" style="background-image: url({$r[thumb]})"></div>
+							</div>
+
+							<video class="video" id="video1" preload="auto" poster="{$r[thumb]}">
+								<source src="{$r[video]}" type="video/mp4;">
+							</video>
+						</div>
+
+						
+						<div class="i_banner_box">
+							<div class="wrap">
+								<h4 class="cover_title01 transition1 delay02">{$r[title2]}</h4>
+								<h3 class="cover_title02 transition1 delay04">{$r[description]}</h3>
+								<div class="video_btn transition1 delay06">
+									<span class="video_btns" data-index="1">
+										PLAY
+									</span>
+								</div>
+
+							</div>
+						</div>
+						<div class="baner_liner"></div>
+					</div>
+
+				</div>
+				{else}
+				<div class="swiper-slide">
+					<div class="iteam">
+						<div class="img">
+							<div class="img-i imgY">
+								<img src="{$r[thumb]}" alt="">
+							</div>
+							<div class="img-i imgN" style="background-image: url({$r[thumb]})"></div>
+						</div>
+						<div class="i_banner_box">
+							<div class="wrap">
+								<h4 class="cover_title01 transition1 delay02">{$r[title2]}</h4>
+								<h3 class="cover_title02 transition1 delay04">{$r[description]}</h3>
+							</div>
+						</div>
+						<div class="baner_liner"></div>
+					</div>
+
+				</div>
+				{/if}
+				{/loop}
+                {/pc}
+
+				
+
+
+			</div>
+			
+		</div>
+
+		<div class="ibanner_list">
+			<div class="wrap">
+				<div class="list_box">
+
+					
+					<div class="item"></div>
+					{pc:content action="lists" catid="39"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+					{php $i=1}
+                	{loop $data $r}
+					<div class="item {if $i==1}active{/if}">
+						<div class="item-bg">
+							<img src="{$r[bg]}" alt="">
+						</div>
+						<div class="box">
+							<div class="title">
+								<h3>{$r[title]}</h3>
+								<!-- <span>{$r[title_en]}</span> -->
+							</div>
+							<div class="num">{php echo str_pad($i,2,"0",STR_PAD_LEFT)} -</div>
+							<div class="icon"><img src="{$r[ico]}" alt=""></div>
+						</div>
+					</div>
+					{php $i++}
+					{/loop}
+               		{/pc}
+
+		
+				</div>
+
+			</div>
+			
+		</div>
+		
+
+	</div>
+	<!-- banner end-->
+
+	
+	
+	<!-- Page Content -->
+	<main class="sitepage-content">
+		<div class="index_business">
+			<div class="wrap">
+				<div class="business_top clearfix">
+					<div class="business_header">
+						<div class="index_title">
+							<!-- <h4>{$CATEGORYS[40][catname_en]}</h4> -->
+							<h3>{$CATEGORYS[40][catname]}</h3><!-- 我们的业务 -->
+							<a href="{$CATEGORYS[58][url]}" class="more">
+								SEE MORE
+							</a>
+						</div>
+					</div>
+					<div class="business_info">
+						{pc:content action="lists" catid="40"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+						
+	                	{loop $data $r}
+						<div class="item" style="background-image: url({$r[thumb]});">
+							<div class="box">
+								<div class="item-title">{$r[title]}</div>
+								<div class="liner"></div>
+								<div class="item-ftitle">{$r[title2]}</div>
+								<div class="item-desc">
+									{$r[description]}
+								</div>
+								<div class="item-icon">
+									<img src="/statics/web/images/ic/ic_4.png" alt="">
+								</div>
+							</div>
+						</div>
+					
+						{/loop}
+	               		{/pc}
+					
+						
+					</div>
+				</div>
+				<div class="business_bottom clearfix">
+
+					<div class="business_bottom_box">
+
+						<div class="swiper-wrapper">
+							{pc:content action="lists" catid="40"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+							{php $i=1}
+		                	{loop $data $r}
+							<div class="item">			
+								<div class="box {if $i==1}active{/if}">
+									<div class="img-box"><img src="{$r[bg]}" alt=""></div>
+									<div class="item-box">
+										<div class="img">
+											<img src="{$r[thumb2]}" alt="">
+										</div>
+										<h3>{$r[title]}</h3>
+										<!-- <span>{$r[title_en]}</span> -->
+										<div class="icon"></div>
+									</div>
+								</div>
+							</div>
+							{php $i++}
+							{/loop}
+	               			{/pc}
+						
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="index_strengths">
+			<div class="wrap">
+				<div class="index_title white">
+					<!-- <h4>{$CATEGORYS[41][catname_en]}</h4> -->
+					<h3>{$CATEGORYS[41][catname]}</h3><!-- 我们的优势 -->
+				</div>
+				<div class="liner"></div>
+				<div class="strengths_info">
+					{pc:content action="lists" catid="41"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+                	{loop $data $r}
+					<div class="box">
+						<h4>{$r[title]}</h4>
+						<div class="synopsis">
+							{$r[description]}
+						</div>
+					</div>
+					{/loop}
+           			{/pc}
+					
+				</div>
+			</div>
+			<div class="strengths_list clearfix">
+				<div class="wrap">
+					<div class="strengths_list_box">
+						<div class="swiper-wrapper">
+							{pc:content action="lists" catid="41"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+							{php $i=1}
+		                	{loop $data $r}
+							<div class="item">
+								<div class="item-box {if $i==1}active{/if}">
+									<div class="img">
+										<img src="{$r[thumb]}" alt="">
+									</div>
+									<div class="icon"></div>
+									<div class="title">
+										{$r[title]}
+									</div>
+								</div>
+							</div>
+							{php $i++}
+							{/loop}
+	               			{/pc}
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="index_about">
+			<div class="wrap clearfix">
+				{pc:content action="lists" catid="42"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="1" }
+            	{loop $data $r}
+				<div class="about_fl" style="background-image: url({$r[thumb]});">
+					
+					<div class="index_title white">
+						<h3>{$r[title]}</h3>
+						<div class="liner"></div>
+						<div class="synopsis">
+							{$r[content]}
+						</div>
+						
+						<a href="{$CATEGORYS[20][url]}" class="more">
+							SEE MORE
+						</a>
+					</div>
+
+				</div>
+
+				<div class="about_fr">
+					<img src="{$r[thumb2]}" alt="">
+				</div>
+				{/loop}
+	             {/pc}
+			</div>
+		</div>
+
+		<div class="index_cooperative">
+			<div class="wrap">
+				<div class="index_title">
+					<!-- <h4>{$CATEGORYS[43][catname_en]}</h4> -->
+					<h3>{$CATEGORYS[43][catname]}</h3><!-- 合作伙伴 -->
+					<a href="" class="more">
+						SEE MORE
+					</a>
+				</div>
+				<div class="cooperative_list clearfix">
+					{pc:content action="lists" catid="43"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="100" }
+            	{loop $data $r}
+					<div class="item">
+						<a href="{if $r[islink]==1}{$r[url]}{else}javascript:;{/if}"  {if $r[islink]==1}target="_blank"{/if} rel="noopener noreferrer">
+							<div class="img">
+								<img src="{$r[thumb]}" alt="{$r[title]}">
+							</div>
+						</a>
+					</div>
+					{/loop}
+	             {/pc}
+					
+
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+	<!-- //Page Content -->
+
+	
+
+	<!-- 底部 -->
+	
+	{template "content","footer"}
+	
+	<!-- 底部 end-->
+
+
+	{template "content","script"}
+
+</body>
+
+</html>

@@ -1,0 +1,417 @@
+<?php include template("content","header"); ?>
+
+<body>
+
+	<!--header-wrapper-->
+
+	<?php include template("content","part_nav"); ?>
+	<!--/header-wrapper-->
+
+
+	
+	<div class="page_ban" >
+		<div class="img-box" style="background-image: url(<?php echo $CATEGORYS[$top_parentid]['image'];?>);">
+			<img src="<?php echo $CATEGORYS[$top_parentid]['image'];?>" alt="">
+		</div>
+		<div class="img-info">
+			<div class="page_wrap">
+
+				<div class="info_title">
+					<span><?php echo $CATEGORYS[$top_parentid]['catname_en'];?></span>
+					<h3><?php echo $CATEGORYS[$top_parentid]['catname'];?></h3>
+				</div>
+				<div class="mbx">
+					<a href="/">Home</a>
+					<i class="fa iconfont icon-angleright"></i><a href="<?php echo $CATEGORYS[$top_parentid]['url'];?>"><?php echo $CATEGORYS[$top_parentid]['catname'];?></a>
+					<i class="fa iconfont icon-angleright"></i><a href="<?php echo $CATEGORYS[$catid]['url'];?>"><?php echo $CATEGORYS[$CAT['parentid']]['catname'];?></a>
+					<i class="fa iconfont icon-angleright"></i><a href="<?php echo $CATEGORYS[$catid]['url'];?>"><?php echo $CATEGORYS[$CAT['catid']]['catname'];?></a>
+					<i class="fa iconfont icon-angleright"></i><a href=""><?php echo $title;?></a>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<!-- Page Content -->
+	<main class="page-content">
+		<div class="product-page productbg1">
+			<div class="page_wrap">
+				<div class="product-title">Product Center</div>
+				<div class="product-subtitle">
+					<h1><?php echo $title;?></h1>
+					<div class="label">
+						<?php echo $xh;?>
+					</div>
+				</div>
+				<div class="single-page">
+					<?php echo $content;?>
+				</div>
+			</div>
+		</div>
+		<?php if($video) { ?>
+		<div class="product-video">
+			<div class="page_wrap">
+				<div class="product-title">Product Video</div>
+				<div class="page-video">
+					<div class="video">
+						<video src="<?php echo $video;?>"  poster="<?php echo $video_img;?>" loop controlsList='nofullscreen nodownload noremote footbar'
+						x5-playsinline="" playsinline="" webkit-playsinline="" ></video>
+						<div class="posterBg" data-wow-delay=".4s">
+							<img src="<?php echo $video_img;?>" alt="">
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<?php } ?>
+
+		<?php if($miaoshu) { ?>
+		<div class="product-description productbg1">
+			<div class="page_wrap">
+				<div class="product-title">Product description</div>
+				<div class="description-list">
+					<?php echo $miaoshu;?>
+					<!-- <div class="item active">
+						<div class="item-header">概述</div>
+						<div class="item-box">
+							<div class="single-page">
+								<?php echo $gaishu;?>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">使用环境</div>
+						<div class="item-box">
+							<div class="single-page">
+								<?php echo $huanjing;?>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">特殊使用条件</div>
+						<div class="item-box">
+							<div class="single-page">
+								<?php echo $tiaojian;?>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">减少温室气体排放</div>
+						<div class="item-box">
+							<div class="single-page">
+								<?php echo $qiti;?>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="item-header">优势</div>
+						<div class="item-box">
+							<div class="single-page">
+								<?php echo $youshi;?>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>		
+
+		</div>
+		<?php } ?>
+		
+		<?php if($canshu) { ?>
+		<div class="product-page">
+			<div class="page_wrap">
+				<div class="product-title">Specification</div>
+				<div class="single-page">
+					<p>
+						<img src="<?php echo $canshu;?>" alt="">
+					</p>
+				</div>
+			</div>			
+		</div>
+		<?php } ?>
+
+		<?php if($tuzhi) { ?>
+		<div class="product-description drawing productbg1 ">
+			<div class="page_wrap">
+				<div class="product-title">Drawing</div>
+				<div class="description-list">
+					<?php $i=1?>
+					<?php $n=1;if(is_array($tuzhi)) foreach($tuzhi AS $r) { ?>
+					<div class="item <?php if($i==1) { ?>active<?php } ?>">
+						<div class="item-header"><?php echo $r['alt'];?></div>
+						<div class="item-box">
+							<div class="single-page">
+								<p><img src="<?php echo $r['url'];?>" alt=""></p>
+							</div>
+						</div>
+					</div>
+					<?php $i++?>
+					<?php $n++;}unset($n); ?>
+					
+				</div>
+			</div>		
+
+		</div>
+		<?php } ?>
+<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=c0af256467426714c47ba9a0c81a379d&action=relation&relation=%24relation&id=%24id&catid=44&keywords=%24rs%5Bkeywords%5D\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = bc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'relation')) {global $data; $data = $content_tag->relation(array('relation'=>$relation,'id'=>$id,'catid'=>'44','keywords'=>$rs[keywords],'limit'=>'20',));}?>
+<?php $relation =  $data?>
+ <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+ 		<?php if($yangpin && count($relation)>0) { ?>
+		<div class="product-page">
+			<div class="page_wrap">
+				<?php if($yangpin) { ?>
+				<div class="product-title">Catalogue</div>
+
+				<div class="product-sample-list clearfix">
+
+					<?php $n=1;if(is_array($yangpin)) foreach($yangpin AS $r) { ?>
+						<div class="item">
+							<div class="item-img">
+								<img src="<?php echo $r['url'];?>" class="img-self-js" alt="<?php echo $r['alt'];?>">
+							</div>
+							<div class="item-box">
+								<?php echo $r['alt'];?>
+							</div>
+						</div>
+					<?php $n++;}unset($n); ?>
+					
+				</div>
+				<?php } ?>
+
+				<!-- <div class="product-sample-title">
+
+					<?php $n=1;if(is_array($yangpin)) foreach($yangpin AS $r) { ?>
+					<a href="javascript:;"><?php echo $r['alt'];?></a>
+					<?php $n++;}unset($n); ?>
+				</div>
+				<div class="product-sample-box">
+					<?php $n=1;if(is_array($yangpin)) foreach($yangpin AS $r) { ?>
+					<div class="box">
+						<div class="single-page">
+							<p><img src="<?php echo $r['url'];?>" alt=""></p>
+						</div>
+					</div>
+					<?php $n++;}unset($n); ?>
+					
+				</div> -->
+				<?php if(count($relation)>0 ) { ?>
+				<div class="sample-btn">
+					<a href="javascript:;">
+						<span>Resources</span>
+					</a>
+				</div>
+				<?php } ?>
+				
+			</div>			
+		</div>
+		<?php } ?>
+
+		
+
+		
+	</main>
+	<!-- //Page Content -->
+
+	
+	<?php if(count($relation)>0 ) { ?>
+	<div class="is-sample_hidden_bg">
+        <div class="sample_hidden">
+			<div class="sample_box">
+				<div class="sample_title">Resources<div class="sample_close"></div></div>
+				<div class="sample_list">
+					
+					
+					
+					<?php $n=1;if(is_array($relation)) foreach($relation AS $r) { ?>  
+					<div class="item">
+						<h3><?php echo $r['title'];?></h3>
+						<a href="<?php if($r[file]) { ?><?php echo $r['file'];?><?php } else { ?>javascript:;<?php } ?>" class="btn">
+							<span>Download</span>
+						</a>
+					</div>
+					<?php $n++;}unset($n); ?>
+					
+				</div>	
+			</div>
+		</div>
+    </div>
+    <?php } ?>
+   
+
+	<script>
+		
+		/*弹框JS内容*/
+
+		$(function(){
+
+			$(".sample-btn").click(function(){
+				$(".is-sample_hidden_bg").addClass("is-visible1");
+			})
+
+			//关闭窗口
+			$('.sample_close').on('click', function(event){
+				removeUnScroll()
+				$('.is-sample_hidden_bg').removeClass('is-visible1');
+			});
+
+		})
+
+
+		/**
+		* 禁用滚动条
+		*/
+		function unScroll(){
+			var top=$(document).scrollTop();$(document).on('scroll.unable',function (e){$(document).scrollTop(top);})
+		}
+		/**
+		* 解除禁用滚动条
+		*/
+		function removeUnScroll(){
+			$(document).unbind("scroll.unable");
+		}
+
+	</script>
+	
+
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<!-- Background of PhotoSwipe.
+			It's a separate element, as animating opacity is faster than rgba(). -->
+		<div class="pswp__bg"></div>
+
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<div class="pswp__container">
+				<!-- don't modify these 3 pswp__item elements, data is added later on -->
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+					
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+				
+
+				<div class="pswp_bottom">
+
+					<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+						previous page
+					</button>	
+					<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+						next page
+					</button>
+
+				</div>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<link rel="stylesheet" href="/statics/web/js/PhotoSwipe/photoswipe.css">
+	<link rel="stylesheet" href="/statics/web/js/PhotoSwipe/default-skin/default-skin.css">
+	
+	<script type="text/javascript" src="/statics/web/js/PhotoSwipe/photoswipe.min.js"></script>
+	<script type="text/javascript" src="/statics/web/js/PhotoSwipe/photoswipe-ui-default.min.js"></script>
+	
+	<script>
+
+		var gallery="";
+        $(document).on("click",".img-self-js",function(){
+            let self=$(this);				
+            let index = self.parent().parent().index();
+            let $Element=$(".pswp")[0];//被绑的容器对象
+    
+            // 创建大图参数数组
+            var items = [];
+            $(".img-self-js").each(function(){
+                var self=$(this);
+                var item={
+                    src: self.attr("src"),
+                    w: self[0].naturalWidth,//图片原始大小
+                    h: self[0].naturalHeight
+                }
+                items.push(item);
+            })
+    
+            var $self = self.offset();//获得当前被点击图片的窗口距离对象
+            
+            // 参数设置
+            var options = {
+                getThumbBoundsFn:function(){
+                    return {x:$self.left,y:$self.top,w:self[0].naturalWidth};//动画开始时从对应的图片放大到全屏，返回对应图片相对于窗口的实际坐标和自己的宽度
+                },
+                maxSpreadZoom:2.5,//手势放大图片最大倍数
+                allowPanToNext:true,//图片处于放大状态是否允许滑动到下一张
+                getDoubleTapZoom:function(isMouseClick, item){
+                    //双击后图片缩放到的倍数//1表示缩放到原始大小
+                    if(isMouseClick) {
+                        return 1;
+                    } else {
+                        return item.initialZoomLevel < 0.7 ? 1 : 1.33;
+                    }
+                },
+                loop:false,//滑动到最后一张是否可以继续循环到第一张
+                history: false,
+                focus: false,
+                closeOnVerticalDrag:false,//垂直拖动图片关闭弹层
+                mouseUsed:true,
+                spacing:0.03,
+                showAnimationDuration: 430,//显示大图动画时间
+                hideAnimationDuration: 430,//隐藏大图动画时间
+                showHideOpacity:true,//动画时淡出逐渐变透明
+                
+                index: index // 从哪一张图片开始
+            };
+            
+            //创建//PhotoSwipeUI_Default这个全局变量是引用photoswipe-ui-default.js所得到
+            gallery = new PhotoSwipe( $Element, PhotoSwipeUI_Default, items, options);
+            gallery.init();	
+    
+			
+    
+            
+        })
+	</script>
+
+	<!-- 底部 -->
+	
+	<?php include template("content","footer"); ?>
+	
+	<!-- 底部 end-->
+
+
+	<?php include template("content","script"); ?>
+
+</body>
+
+</html>

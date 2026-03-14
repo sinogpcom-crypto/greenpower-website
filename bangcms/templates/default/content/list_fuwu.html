@@ -1,0 +1,78 @@
+{template "content","header"}
+
+<body>
+
+	<!--header-wrapper-->
+
+	{template "content","part_nav"}
+	<!--/header-wrapper-->
+
+
+	
+	{template "content","page_banner"}
+	
+	{template "content","page_nav"}
+	          
+	
+	
+	<!-- Page Content -->
+	<main class="page-content">
+
+		<div class="service-page">
+			<div class="page_wrap">
+				<div class="service-list clearfix">
+					{pc:content action="lists" catid="$catid"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="5" page="$page" }
+                	{loop $data $r}
+					<div class="item">
+						<a href="{$r[url]}">
+							<div class="item-data">
+								<div class="item-data-box">
+									<div class="day">{date('d', $r['inputtime'])}</div>
+									<div class="year">{date('Y.m', $r['inputtime'])}</div>
+								</div>
+							</div>
+							<div class="item-img">
+								<img src="{$r[thumb]}" alt="">
+							</div>
+							<div class="item-box">
+								<div class="title">
+									{$r[title]}
+								</div>
+								<div class="synopsis">
+									{$r[description]}
+								</div>
+							</div>
+							<div class="icon"><img src="/statics/web/images/ic/ic_10.png" alt=""></div>
+						</a>
+					</div>
+					{/loop}
+                 	{/pc}
+				
+				</div>
+
+				
+				{$pages2}
+				
+
+				
+				
+			</div>
+		</div>
+
+	</main>
+	<!-- //Page Content -->
+
+	
+
+	<!-- 底部 -->
+	
+	{template "content","footer"}
+	
+	<!-- 底部 end-->
+
+
+	{template "content","script"}
+
+</body>
+
+</html>

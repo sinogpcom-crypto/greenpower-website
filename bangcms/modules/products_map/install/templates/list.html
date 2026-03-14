@@ -1,0 +1,42 @@
+{template 'content', 'header'}
+<script language="javascript" type="text/javascript" src="{JS_PATH}admin_common.js"></script> 
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+<div id="memberArea">
+<div class="col-auto">
+<div class="main">
+<h6 class="title">留言列表</h6>
+<h6 class="title"><a href="{WEB_PATH}/index.php?m=words&c=index&a=sendform">留言</a></h6>
+<div class="content"> 
+<table cellspacing="0"  class="table-list">
+        <thead>
+            <tr>
+            <th>昵称</th>
+            <th>内容</th>
+            <th>联系方式</th>
+            <th>留言时间</th>
+            </tr>
+        </thead>
+    <tbody>
+	{loop $infos $v} 
+	<tr>
+	<td align="">{$v['name']}</td>
+	<td align="center">{$v['content']}</td>
+	<td align="center">{$v['contact']}</td>
+	<td align="center">{date('Y-m-d H:i:s',$v['inserttime'])} </a>
+	</tr>
+	{/loop}
+	
+    </tbody>
+ </table>
+
+<div id="pages">{$pages}</div>
+</div>
+<span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+</div>
+
+</div>
+</div>
+
+{template 'content', 'footer'}
+

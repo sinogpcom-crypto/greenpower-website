@@ -1,0 +1,108 @@
+{template "content","header"}
+
+<body>
+
+	<!--header-wrapper-->
+
+	{template "content","part_nav"}
+	<!--/header-wrapper-->
+
+
+	{template "content","page_banner"}
+	
+	{template "content","page_nav"}
+
+	
+	<!-- Page Content -->
+	<main class="page-content">
+
+		<div class="about-culture productbg1">
+			<div class="about-title">
+				{$CATEGORYS[29][catname]}
+			</div>
+
+			<div class="culture-list">
+				<div class="page_wrap clearfix">
+					{pc:content action="lists" catid="29"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+             		{loop $data $r}
+					
+					<div class="item">
+						<div class="img">
+							<img src="{$r[thumb]}" alt="">
+						</div>
+						<div class="title">{$r[title]}</div>
+						<div class="synopsis">
+							<p style="text-align: center;">{format_textarea($r[description])}</p>							
+						</div>
+					</div>
+					{/loop}
+            		{/pc}
+				
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="about-brand">
+			<div class="about-title">
+				{$CATEGORYS[30][catname]}
+			</div>
+			<div class="brand-list">
+				<div class="page_wrap clearfix">
+					{pc:content action="lists" catid="30"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" }
+             		{loop $data $r}
+					<div class="item">
+						<div class="item-img">
+							<img src="{$r[thumb]}" alt="">
+						</div>
+						<div class="item-info">
+							{format_textarea($r[description])}
+						</div>
+					</div>
+					{/loop}
+            		{/pc}
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="about-corporate">
+			<div class="about-title">
+				{$CATEGORYS[31][catname]}
+			</div>
+			<div class="corporate-list">
+				<div class="page_wrap clearfix">
+					{pc:content action="lists" catid="31"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
+             		{loop $data $r}
+					<div class="item">
+						<div class="item-icon">
+							<img src="/statics/web/images/ic/ic_20.png" alt="">
+						</div>
+						<div class="item-info">
+							{format_textarea($r[description])}
+						</div>
+					</div>
+					{/loop}
+            		{/pc}
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- //Page Content -->
+
+	
+
+	<!-- 底部 -->
+	
+	{template "content","footer"}
+	
+	<!-- 底部 end-->
+
+
+	{template "content","script"}
+
+</body>
+
+</html>
