@@ -1,182 +1,179 @@
 @charset "UTF-8";
 .product-list .item .item-box .info {max-height:180px; overflow-y:auto;}
-.product-list .item .item-box .info::-webkit-scrollbar {    /*滚动条整体样式*/
-    width: 10px;                        /*高宽分别对应横竖滚动条的尺寸*/
-    height: 10px;
+.product-list .item .item-box .info::-webkit-scrollbar { /滚动条整体样式/
+width: 10px; /高宽分别对应横竖滚动条的尺寸/
+height: 10px;
 }
-.product-list .item .item-box .info::-webkit-scrollbar-thumb {  /*滚动条里面小方块*/
-    border-radius: 10px;
-    -webkit-box-shadow:0 2px 5px rgba(224,190,141,0.6);
-    background: #e0be8d;
+.product-list .item .item-box .info::-webkit-scrollbar-thumb { /滚动条里面小方块/
+border-radius: 10px;
+-webkit-box-shadow:0 2px 5px rgba(224,190,141,0.6);
+background: #e0be8d;
 }
-.product-list .item .item-box .info::-webkit-scrollbar-track {  /*滚动条里面轨道*/
-    
-    border-radius: 10px;
-    background:none;
+.product-list .item .item-box .info::-webkit-scrollbar-track { /滚动条里面轨道/
+
+border-radius: 10px;
+background:none;
 }
 @media only screen and (max-width: 768px){
 .product-list .item .item-box .info {
-    max-height: 11.5rem;
-    padding: 1.5rem;
-    background-size: auto 8rem;
+max-height: 11.5rem;
+padding: 1.5rem;
+background-size: auto 8rem;
 }
 }
 .product_menu{ float:left; width:100%; padding:20px 0; background:#fff; margin-bottom:20px;}
-#pMenu{ width:96%; max-width:1200px; margin:0 auto; display:flex;flex-wrap:wrap; position: relative;  }
-#pMenu a{ min-width:150px; color: #333; height:50px; padding:10px 20px; background:#f9f9f9; display:inline-block; margin:10px; border:solid #eee 1px;border-radius:25px;  line-height:30px; font-size:16px; }
+#pMenu{ width:96%; max-width:1200px; margin:0 auto; display:flex;flex-wrap:wrap; position: relative; }
+#pMenu a{ min-width:150px; color: #333; height:50px; padding:10px 20px; background:#f9f9f9; display:inline-block; margin:10px; border:solid #eee 1px;border-radius:25px; line-height:30px; font-size:16px; }
 
-#pMenu a.active,#pMenu a:hover{ background:#007a70; color: #fff;}
-#pMenu  span#arrow{ position: absolute;right:10px; bottom:20px; display: none;}
-
-
-
+#pMenu a.active,#pMenu a:hover
+#pMenu span#arrow{ position: absolute;right:10px; bottom:20px; display: none;}
 
 .right_side {
-    position: absolute;
-    right: 0;
-    top: 200px;
-    width: 60px;
-    height: 245px;
-    z-index: 80000
+position: absolute;
+right: 0;
+top: 200px;
+width: 60px;
+height: 245px;
+z-index: 80000
 }
 
 .right_side ul li {
-    width: 60px;
-    height: 60px;
-    border-bottom: 1px solid #05a99c;
-    background: #007a70 url(../images/kefuimg/right_ico.png) no-repeat;
-    cursor: pointer;
-    position: relative;
-    -webkit-transition: background .5s ease-out;
-    -moz-transform: background .5s ease-out;
-    transition: background .5s ease-out
+width: 60px;
+height: 60px;
+border-bottom: 1px solid #05a99c;
+background: #007a70 url(../images/kefuimg/right_ico.png) no-repeat;
+cursor: pointer;
+position: relative;
+-webkit-transition: background .5s ease-out;
+-moz-transform: background .5s ease-out;
+transition: background .5s ease-out
 }
 
 .right_side ul li:hover {
-    background: #fff url(../images/kefuimg/right_hover_ico.png) no-repeat
+background: #fff url(../images/kefuimg/right_hover_ico.png) no-repeat
 }
 
 .right_side ul li.qq {
-    background-position: center 17px;
-    border-top-left-radius: 5px
+background-position: center 17px;
+border-top-left-radius: 5px
 }
 
 .right_side ul li.qq div {
-    display: none;
-    background-color: #f9f9f9;
-    position: absolute;
-    right: 60px;
-    width: 180px;
-    height: 300px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    overflow: hidden;
-    box-shadow: -7px 0 10px rgba(0,0,0,.2)
+display: none;
+background-color: #f9f9f9;
+position: absolute;
+right: 60px;
+width: 180px;
+height: 300px;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+overflow: hidden;
+box-shadow: -7px 0 10px rgba(0,0,0,.2)
 }
 
 .right_side ul li.qq div dt {
-    text-align: center;
-    height: 60px;
-    line-height: 60px;
-    background-color: #fff
+text-align: center;
+height: 60px;
+line-height: 60px;
+background-color: #fff
 }
 
 .right_side ul li.qq div dd {
-    height: 60px;
-    line-height: 60px;
-    color: #666;
-    margin: 0 auto;
-    width: 160px;
-    font-size: 16px;
-    border-bottom: 1px dotted #dedede;
-    text-indent: 80px;
-    background: url(../images/kefuimg/qqbg.gif) no-repeat 30px 17px
+height: 60px;
+line-height: 60px;
+color: #666;
+margin: 0 auto;
+width: 160px;
+font-size: 16px;
+border-bottom: 1px dotted #dedede;
+text-indent: 80px;
+background: url(../images/kefuimg/qqbg.gif) no-repeat 30px 17px
 }
 
 .right_side ul li.qq div dd a {
-    display: block
+display: block
 }
 
 .right_side ul li.qq div dd a:hover {
-    color: #007a70
+color: #007a70
 }
 
 .right_side ul li.tel {
-    background-position: center -44px
+background-position: center -44px
 }
 
 .right_side ul li.tel div {
-    display: none;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    position: absolute;
-    right: 60px;
-    box-shadow: -7px 0 10px rgba(0,0,0,.3);
-    height: 60px;
-    line-height: 60px;
-    padding: 0 20px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #007a70;
-    background-color: #fff;
-    white-space: nowrap
+display: none;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+position: absolute;
+right: 60px;
+box-shadow: -7px 0 10px rgba(0,0,0,.3);
+height: 60px;
+line-height: 60px;
+padding: 0 20px;
+font-size: 24px;
+font-weight: 700;
+color: #007a70;
+background-color: #fff;
+white-space: nowrap
 }
 .right_side ul li.tel div a{
-    color: #007a70;
+color: #007a70;
 }
 
 .right_side ul li.wx {
-    background-position: center -105px;
+background-position: center -105px;
 }
 
 .right_side ul li.wx>div {
-    border-radius: 5px;
-   display: none;
-    position: absolute;
-    top: -200px;
-    right: 60px;
-    box-shadow: -7px 0 10px rgba(0,0,0,.3);
-    overflow: hidden;
-	background:#fff;
+border-radius: 5px;
+display: none;
+position: absolute;
+top: -200px;
+right: 60px;
+box-shadow: -7px 0 10px rgba(0,0,0,.3);
+overflow: hidden;
+background:#fff;
 }
-.right_side ul li.wx div #myform2{ width:100%;  margin: 20px auto; display: flex; flex-direction: column;}
+.right_side ul li.wx div #myform2{ width:100%; margin: 20px auto; display: flex; flex-direction: column;}
 
 .right_side ul li.top {
-    background-position: center -166px;
-    border: none;
-    border-bottom-left-radius: 5px
+background-position: center -166px;
+border: none;
+border-bottom-left-radius: 5px
 }
 
 .right_side ul li:hover div {
-    display: block
+display: block
 }
 
 .right_side ul li.qq:hover {
-    border-radius: 0
+border-radius: 0
 }
 
-.kefu{ width:300px; border:solid #007a70 6px; border-radius:16px;  }
+.kefu{ width:300px; border:solid #007a70 6px; border-radius:16px; }
 
 .kefu .contactPage_dome {
-    border: 1px solid #e4e4e4;
-    width: 96%;
-    float: none;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2%;
-    line-height: 30px;
-    position: static;
+border: 1px solid #e4e4e4;
+width: 96%;
+float: none;
+margin-right: auto;
+margin-left: auto;
+margin-bottom: 2%;
+line-height: 30px;
+position: static;
 }
-.kefu h3{ height:50px; line-height: 50px;  background:#007a70; color:#fff;}
+.kefu h3{ height:50px; line-height: 50px; background:#007a70; color:#fff;}
 .kefu h3 b{ display: inline-block; padding-left: 20px;}
 .kefu .contactPage_input {
-    font-size: 16px;
-    color: #222222;
-    height: 32px;
-    display: block;
-    width: 100%;
-    padding: 0 20px;
-    line-height: 32px;
+font-size: 16px;
+color: #222222;
+height: 32px;
+display: block;
+width: 100%;
+padding: 0 20px;
+line-height: 32px;
 }
 @media(max-width: 1200px){
 .right_side{ display: none;}

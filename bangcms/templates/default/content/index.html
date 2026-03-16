@@ -1,315 +1,335 @@
-{template "content","header"}
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 4.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #0b0b0b; -webkit-text-stroke: #0b0b0b; background-color: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #0b0b0b; -webkit-text-stroke: #0b0b0b; background-color: #ffffff}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px Times; color: #0b0b0b; -webkit-text-stroke: #0b0b0b; min-height: 13.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Times; color: #0b0b0b; -webkit-text-stroke: #0b0b0b}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Times; color: #0b0b0b; -webkit-text-stroke: #0b0b0b; min-height: 18.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; background-color: #f2f2f2}
+    span.s3 {font: 14.0px 'Songti SC'; font-kerning: none; background-color: #f2f2f2}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
 <body>
-
-	<!--header-wrapper-->
-
-	{template "content","part_nav"}
-	<!--/header-wrapper-->
-
-	
-
-
-	<!-- banner -->
-	<div class="i_banner">
-
-		<div class="ibanner_box">
-			<div class="swiper-wrapper">
-				{pc:content action="lists" catid="39"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-                {loop $data $r}
-                {if $r[video]}
-				<div class="swiper-slide">
-					
-					<div class="iteam">
-
-						<div class="video_box">
-							<div class="img">
-								<div class="img-i imgY">
-									<img src="{$r[thumb]}" alt="">
-								</div>
-								<div class="img-i imgN" style="background-image: url({$r[thumb]})"></div>
-							</div>
-
-							<video class="video" id="video1" preload="auto" poster="{$r[thumb]}">
-								<source src="{$r[video]}" type="video/mp4;">
-							</video>
-						</div>
-
-						
-						<div class="i_banner_box">
-							<div class="wrap">
-								<h4 class="cover_title01 transition1 delay02">{$r[title2]}</h4>
-								<h3 class="cover_title02 transition1 delay04">{$r[description]}</h3>
-								<div class="video_btn transition1 delay06">
-									<span class="video_btns" data-index="1">
-										PLAY
-									</span>
-								</div>
-
-							</div>
-						</div>
-						<div class="baner_liner"></div>
-					</div>
-
-				</div>
-				{else}
-				<div class="swiper-slide">
-					<div class="iteam">
-						<div class="img">
-							<div class="img-i imgY">
-								<img src="{$r[thumb]}" alt="">
-							</div>
-							<div class="img-i imgN" style="background-image: url({$r[thumb]})"></div>
-						</div>
-						<div class="i_banner_box">
-							<div class="wrap">
-								<h4 class="cover_title01 transition1 delay02">{$r[title2]}</h4>
-								<h3 class="cover_title02 transition1 delay04">{$r[description]}</h3>
-							</div>
-						</div>
-						<div class="baner_liner"></div>
-					</div>
-
-				</div>
-				{/if}
-				{/loop}
-                {/pc}
-
-				
-
-
-			</div>
-			
-		</div>
-
-		<div class="ibanner_list">
-			<div class="wrap">
-				<div class="list_box">
-
-					
-					<div class="item"></div>
-					{pc:content action="lists" catid="39"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-					{php $i=1}
-                	{loop $data $r}
-					<div class="item {if $i==1}active{/if}">
-						<div class="item-bg">
-							<img src="{$r[bg]}" alt="">
-						</div>
-						<div class="box">
-							<div class="title">
-								<h3>{$r[title]}</h3>
-								<!-- <span>{$r[title_en]}</span> -->
-							</div>
-							<div class="num">{php echo str_pad($i,2,"0",STR_PAD_LEFT)} -</div>
-							<div class="icon"><img src="{$r[ico]}" alt=""></div>
-						</div>
-					</div>
-					{php $i++}
-					{/loop}
-               		{/pc}
-
-		
-				</div>
-
-			</div>
-			
-		</div>
-		
-
-	</div>
-	<!-- banner end-->
-
-	
-	
-	<!-- Page Content -->
-	<main class="sitepage-content">
-		<div class="index_business">
-			<div class="wrap">
-				<div class="business_top clearfix">
-					<div class="business_header">
-						<div class="index_title">
-							<!-- <h4>{$CATEGORYS[40][catname_en]}</h4> -->
-							<h3>{$CATEGORYS[40][catname]}</h3><!-- 我们的业务 -->
-							<a href="{$CATEGORYS[58][url]}" class="more">
-								SEE MORE
-							</a>
-						</div>
-					</div>
-					<div class="business_info">
-						{pc:content action="lists" catid="40"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-						
-	                	{loop $data $r}
-						<div class="item" style="background-image: url({$r[thumb]});">
-							<div class="box">
-								<div class="item-title">{$r[title]}</div>
-								<div class="liner"></div>
-								<div class="item-ftitle">{$r[title2]}</div>
-								<div class="item-desc">
-									{$r[description]}
-								</div>
-								<div class="item-icon">
-									<img src="/statics/web/images/ic/ic_4.png" alt="">
-								</div>
-							</div>
-						</div>
-					
-						{/loop}
-	               		{/pc}
-					
-						
-					</div>
-				</div>
-				<div class="business_bottom clearfix">
-
-					<div class="business_bottom_box">
-
-						<div class="swiper-wrapper">
-							{pc:content action="lists" catid="40"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-							{php $i=1}
-		                	{loop $data $r}
-							<div class="item">			
-								<div class="box {if $i==1}active{/if}">
-									<div class="img-box"><img src="{$r[bg]}" alt=""></div>
-									<div class="item-box">
-										<div class="img">
-											<img src="{$r[thumb2]}" alt="">
-										</div>
-										<h3>{$r[title]}</h3>
-										<!-- <span>{$r[title_en]}</span> -->
-										<div class="icon"></div>
-									</div>
-								</div>
-							</div>
-							{php $i++}
-							{/loop}
-	               			{/pc}
-						
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="index_strengths">
-			<div class="wrap">
-				<div class="index_title white">
-					<!-- <h4>{$CATEGORYS[41][catname_en]}</h4> -->
-					<h3>{$CATEGORYS[41][catname]}</h3><!-- 我们的优势 -->
-				</div>
-				<div class="liner"></div>
-				<div class="strengths_info">
-					{pc:content action="lists" catid="41"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-                	{loop $data $r}
-					<div class="box">
-						<h4>{$r[title]}</h4>
-						<div class="synopsis">
-							{$r[description]}
-						</div>
-					</div>
-					{/loop}
-           			{/pc}
-					
-				</div>
-			</div>
-			<div class="strengths_list clearfix">
-				<div class="wrap">
-					<div class="strengths_list_box">
-						<div class="swiper-wrapper">
-							{pc:content action="lists" catid="41"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"  }
-							{php $i=1}
-		                	{loop $data $r}
-							<div class="item">
-								<div class="item-box {if $i==1}active{/if}">
-									<div class="img">
-										<img src="{$r[thumb]}" alt="">
-									</div>
-									<div class="icon"></div>
-									<div class="title">
-										{$r[title]}
-									</div>
-								</div>
-							</div>
-							{php $i++}
-							{/loop}
-	               			{/pc}
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="index_about">
-			<div class="wrap clearfix">
-				{pc:content action="lists" catid="42"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="1" }
-            	{loop $data $r}
-				<div class="about_fl" style="background-image: url({$r[thumb]});">
-					
-					<div class="index_title white">
-						<h3>{$r[title]}</h3>
-						<div class="liner"></div>
-						<div class="synopsis">
-							{$r[content]}
-						</div>
-						
-						<a href="{$CATEGORYS[20][url]}" class="more">
-							SEE MORE
-						</a>
-					</div>
-
-				</div>
-
-				<div class="about_fr">
-					<img src="{$r[thumb2]}" alt="">
-				</div>
-				{/loop}
-	             {/pc}
-			</div>
-		</div>
-
-		<div class="index_cooperative">
-			<div class="wrap">
-				<div class="index_title">
-					<!-- <h4>{$CATEGORYS[43][catname_en]}</h4> -->
-					<h3>{$CATEGORYS[43][catname]}</h3><!-- 合作伙伴 -->
-					<a href="" class="more">
-						SEE MORE
-					</a>
-				</div>
-				<div class="cooperative_list clearfix">
-					{pc:content action="lists" catid="43"   moreinfo="1"   siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="100" }
-            	{loop $data $r}
-					<div class="item">
-						<a href="{if $r[islink]==1}{$r[url]}{else}javascript:;{/if}"  {if $r[islink]==1}target="_blank"{/if} rel="noopener noreferrer">
-							<div class="img">
-								<img src="{$r[thumb]}" alt="{$r[title]}">
-							</div>
-						</a>
-					</div>
-					{/loop}
-	             {/pc}
-					
-
-				</div>
-			</div>
-		</div>
-
-
-	</main>
-	<!-- //Page Content -->
-
-	
-
-	<!-- 底部 -->
-	
-	{template "content","footer"}
-	
-	<!-- 底部 end-->
-
-
-	{template "content","script"}
-
+<p class="p1"><span class="s1">{template "content","header"}</span></p>
+<p class="p2"><span class="s1">&lt;body&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;!--header-wrapper--&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">{template "content","part_nav"}</span></p>
+<p class="p4"><span class="s2">&lt;!--/header-wrapper--&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;!-- banner --&gt;</span></p>
+<p class="p4"><span class="s2">&lt;div class="i_banner"&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="ibanner_box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="swiper-wrapper"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="39" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span>{if $r[video]}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="swiper-slide"&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="iteam"&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="video_box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img-i imgY"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img-i imgN" style="background-image: url({$r[thumb]})"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;video class="video" id="video1" preload="auto" poster="{$r[thumb]}"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;source src="{$r[video]}" type="video/mp4;"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/video&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="i_banner_box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h4 class="cover_title01 transition1 delay02"&gt;{$r[title2]}&lt;/h4&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3 class="cover_title02 transition1 delay04"&gt;{$r[description]}&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="video_btn transition1 delay06"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;span class="video_btns" data-index="1"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>PLAY</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/span&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="baner_liner"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{else}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="swiper-slide"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="iteam"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img-i imgY"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img-i imgN" style="background-image: url({$r[thumb]})"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="i_banner_box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h4 class="cover_title01 transition1 delay02"&gt;{$r[title2]}&lt;/h4&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3 class="cover_title02 transition1 delay04"&gt;{$r[description]}&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="baner_liner"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/if}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span>{/pc}</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="ibanner_list"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="list_box"&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="39" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i=1}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item {if $i==1}active{/if}"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-bg"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[bg]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="title"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$r[title]}&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!-- &lt;span&gt;{$r[title_en]}&lt;/span&gt; --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="num"&gt;{php echo str_pad($i,2,"0",STR_PAD_LEFT)} -&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="icon"&gt;&lt;img src="{$r[ico]}" alt=""&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i++}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">           <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>{/pc}</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span></span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2">&lt;!-- banner end--&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;!-- Page Content --&gt;</span></p>
+<p class="p4"><span class="s2">&lt;main class="sitepage-content"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="index_business"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="business_top clearfix"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="business_header"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="index_title"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!-- &lt;h4&gt;{$CATEGORYS[40][catname_en]}&lt;/h4&gt; --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$CATEGORYS[40][catname]}&lt;/h3&gt;&lt;!-- </span><span class="s3">我们的业务</span><span class="s2"> --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;a href="{$CATEGORYS[58][url]}" class="more"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SEE MORE</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/a&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="business_info"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="40" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">                <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item" style="background-image: url({$r[thumb]});"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-title"&gt;{$r[title]}&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="liner"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-ftitle"&gt;{$r[title2]}&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-desc"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{$r[description]}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-icon"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="/statics/web/images/ic/ic_4.png" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">               <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>{/pc}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="business_bottom clearfix"&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="business_bottom_box"&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="swiper-wrapper"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="40" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i=1}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">                <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item"&gt;<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="box {if $i==1}active{/if}"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img-box"&gt;&lt;img src="{$r[bg]}" alt=""&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb2]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$r[title]}&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!-- &lt;span&gt;{$r[title_en]}&lt;/span&gt; --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="icon"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i++}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">               <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>{/pc}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="index_strengths"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="index_title white"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!-- &lt;h4&gt;{$CATEGORYS[41][catname_en]}&lt;/h4&gt; --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$CATEGORYS[41][catname]}&lt;/h3&gt;&lt;!-- </span><span class="s3">我们的优势</span><span class="s2"> --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="liner"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="strengths_info"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="41" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h4&gt;{$r[title]}&lt;/h4&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="synopsis"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{$r[description]}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">       <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>{/pc}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="strengths_list clearfix"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="strengths_list_box"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="swiper-wrapper"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="41" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc"<span class="Apple-converted-space">  </span>}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i=1}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">                <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item-box {if $i==1}active{/if}"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="icon"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="title"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{$r[title]}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{php $i++}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">               <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>{/pc}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="index_about"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap clearfix"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="42" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="1" }</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="about_fl" style="background-image: url({$r[thumb]});"&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="index_title white"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$r[title]}&lt;/h3&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="liner"&gt;&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="synopsis"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{$r[content]}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;a href="{$CATEGORYS[20][url]}" class="more"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SEE MORE</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/a&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="about_fr"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb2]}" alt=""&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">             </span>{/pc}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;div class="index_cooperative"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="wrap"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="index_title"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;!-- &lt;h4&gt;{$CATEGORYS[43][catname_en]}&lt;/h4&gt; --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;h3&gt;{$CATEGORYS[43][catname]}&lt;/h3&gt;&lt;!-- </span><span class="s3">合作伙伴</span><span class="s2"> --&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;a href="" class="more"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>SEE MORE</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/a&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="cooperative_list clearfix"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{pc:content action="lists" catid="43" <span class="Apple-converted-space">  </span>moreinfo="1" <span class="Apple-converted-space">  </span>siteid="$siteid" order="listorder is null,listorder desc,inputtime desc,id desc" num="100" }</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span></span>{loop $data $r}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="item"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;a href="{if $r[islink]==1}{$r[url]}{else}javascript:;{/if}"<span class="Apple-converted-space">  </span>{if $r[islink]==1}target="_blank"{/if} rel="noopener noreferrer"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;div class="img"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;img src="{$r[thumb]}" alt="{$r[title]}"&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/a&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{/loop}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">             </span>{/pc}</span></p>
+<p class="p5"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p4"><span class="s2"><span class="Apple-tab-span">	</span>&lt;/div&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;/main&gt;</span></p>
+<p class="p4"><span class="s2">&lt;!-- //Page Content --&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;!-- </span><span class="s3">底部</span><span class="s2"> --&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">{template "content","footer"}</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">&lt;!-- </span><span class="s3">底部</span><span class="s2"> end--&gt;</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p4"><span class="s2">{template "content","script"}</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">&lt;/body&gt; &lt;/html&gt;</span></p>
 </body>
-
 </html>
